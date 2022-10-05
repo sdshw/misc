@@ -1,6 +1,6 @@
 :: Copyright (c)2022 https://bookfere.com
 :: This is a batch script for fixing Google Translate and making it available
-:: in the Chinese mainland. If you expirence any problem, visit the page below:
+:: in the Chinese mainland. If you experience any problem, visit the page below:
 :: https://bookfere.com/post/1020.html
 
 @setlocal enabledelayedexpansion
@@ -28,7 +28,7 @@ if not "%old_rule%"=="null" (
         for /f "tokens=*" %%i in ('type "%hosts_file%" ^| find /v /n "" ^& break ^> "%hosts_file%"') do (
             set "rule=%%i"
             set "rule=!rule:*]=!"
-            if "%old_rule%"==!rule! set "rule=%new_rule%"
+            if "%old_rule%"=="!rule!" set "rule=%new_rule%"
             >>%hosts_file% echo(!rule!
         )
     ) else (
